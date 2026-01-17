@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subdomain Takeover PoC</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        #terminal {
+            width: 80%;
+            max-width: 800px;
+            background: rgba(0, 20, 0, 0.9);
+            padding: 20px;
+            border: 1px solid #0f0;
+            box-shadow: 0 0 20px #0f0;
+        }
+        .line {
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #0f0;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        h1 { font-size: 1.5rem; text-shadow: 0 0 5px #0f0; }
+    </style>
+</head>
+<body>
+
+    <div id="terminal">
+        <h1>[ SYSTEM COMPROMISED ]</h1>
+        <div class="line" id="l1">> Initializing security audit...</div>
+        <div class="line" id="l2">> Scanning for dangling DNS records...</div>
+        <div class="line" id="l3">> Vulnerability detected: Subdomain Takeover (Vercel)</div>
+        <div class="line" id="l4">> Domain: garafana.hackwithindia.com</div>
+        <div class="line" id="l5">> Status: POC SUCCESSFUL</div>
+        <div class="line">> Reported by: <strong>MXFIZZ07</strong> <span class="cursor"></span></div>
+    </div>
+
+    <script>
+        // Simple typewriter effect for the lines
+        const lines = document.querySelectorAll('.line');
+        lines.forEach((line, index) => {
+            line.style.opacity = '0';
+            setTimeout(() => {
+                line.style.opacity = '1';
+                line.style.transition = 'opacity 0.5s';
+            }, index * 800);
+        });
+    </script>
+</body>
+</html>
